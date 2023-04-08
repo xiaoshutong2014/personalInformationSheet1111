@@ -1,31 +1,126 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2022.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Monaco; color: #d96067; -webkit-text-stroke: #d96067; background-color: #222222}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Monaco; color: #c1c1c1; -webkit-text-stroke: #c1c1c1; background-color: #222222}
-    span.s1 {font-kerning: none; color: #c1c1c1; -webkit-text-stroke: 0px #c1c1c1}
-    span.s2 {font-kerning: none}
-    span.s3 {font-kerning: none; color: #d96067; -webkit-text-stroke: 0px #d96067}
-    span.s4 {font-kerning: none; color: #6dbc87; -webkit-text-stroke: 0px #6dbc87}
-    span.s5 {font: 12.0px 'PingFang SC'; font-kerning: none}
-  </style>
+    <title>信用卡申请表单</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        label {
+            width: 80px;
+            line-height: 48px;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        select {
+            border: none;
+            box-sizing: border-box;
+            flex: auto;
+            margin-right: 10px;
+            padding: 0 10px;
+        }
+        
+        .div_submit {
+            margin: 10px auto 20px auto;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            width: 160px;
+            background: #CE2D2D;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .div_submit:hover {
+            background-color: #B91010;
+        }
+        
+        .st_inline {
+            display: flex;
+            height: 48px;
+            line-height: 48px;
+            border-bottom: 1px solid #ECECEC;
+            font-size: 14px;
+        }
+        
+        .con {
+            margin: 24px;
+        }
+        
+        .clause {
+            color: #999;
+            font-size: 12px;
+            line-height: 22px;
+            padding: 20px 0;
+        }
+        
+        .clause_red {
+            color: #CE2D2D;
+        }
+        
+        .clause_blue {
+            color: #007EFF;
+        }
+        
+        .title_main {
+            height: 60px;
+            line-height: 60px;
+            background: #CE2D2D;
+            font-size: 18px;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-<p class="p1"><span class="s1">&lt;</span><span class="s2">html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;</span><span class="s3">head</span><span class="s2">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>&lt;</span><span class="s3">title</span><span class="s2">&gt;Hello OSS!&lt;/</span><span class="s3">title</span><span class="s2">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>&lt;</span><span class="s3">meta charset</span><span class="s2">="</span><span class="s4">utf-8</span><span class="s2">"&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s3">head</span><span class="s2">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;</span><span class="s3">body</span><span class="s2">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>&lt;</span><span class="s3">p</span><span class="s2">&gt;</span><span class="s5">开始阿里云</span><span class="s2">OSS</span><span class="s5">托管</span><span class="s2">&lt;/</span><span class="s3">p</span><span class="s2">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">       </span>&lt;</span><span class="s3">p</span><span class="s2">&gt;</span><span class="s5">这是错误页面</span><span class="s2">&lt;/</span><span class="s3">p</span><span class="s2">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/</span><span class="s3">body</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/</span><span class="s2">html</span><span class="s1">&gt;</span></p>
+    <div class="title_main">信用卡申请</div>
+    <div class="con">
+        <form action="second_page.html" method="GET">
+            <img src="credit_card.jpg" alt="信用卡" style="width: 80%;  margin: 0 auto 40px auto; display: block;">
+            <div class="st_inline">
+                <label for="fullname">中文姓名：</label>
+                <input type="text" id="fullname" name="fullname" placeholder="请输入" required>
+            </div>
+
+            <div class="st_inline">
+                <label for="pinyin">姓名拼音：</label>
+                <input type="text" id="pinyin" name="pinyin" placeholder="请输入" required>
+            </div>
+
+            <div class="st_inline">
+                <label for="idcard">身份证号：</label>
+                <input type="text" id="idcard" name="idcard" placeholder="请输入" required>
+            </div>
+
+            <div class="st_inline">
+                <label for="phone">手机号码：</label>
+                <input type="text" id="phone" name="phone" placeholder="请输入" required>
+            </div>
+            <div class="clause">
+                本人已阅读以下信用卡章程、 领用合约、授权书等全部申请 材料，充分了解并清楚知晓华夏银行信用卡产品的相关信 息、权利义务、收费标准，愿意遵守以下各项约定的全部内 容：
+                <span class="clause_blue">《华夏银行信用卡章程》《华夏银行信用卡（个人卡）领用合约》 《重要提示》《个人信息处理授权书》《华夏银行产品和服务销售价目名录》</span> （收费标准）。同意并授权 华夏银行为信用卡业务之目的，向中国人民银行金融信用信息基础数据库等有关方面查询、报送本人的个人信用信息，包括个人基本信息、个人信货交易信息以及反映个人信用状况的其他信息。同意并授权华夏银行记录本人使用的Cookie和IP地址等设备信息、填写行为（查看Cookie应用说明）本人同意使用电子签名的方式签订本协议，同意并授权华夏银行向北京数字认证股份有限公司申请电子签名认证证书，自愿遵守其电子认证业务规则。
+                <div class="clause_red">
+                    <input type="checkbox" id="consent" name="consent" value="同意"> 若当前申请的卡片未获批准，同意调整为其他等级卡片，具体结果以最终申核为准。
+                </div>
+            </div>
+
+
+            <div class="div_submit">下一步</div>
+        </form>
+    </div>
 </body>
+
 </html>

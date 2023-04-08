@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Modal Demo</title>
+    <input type="text" id="name" />
+    <label for="name-pinyin">拼音：</label>
+    <label id="name-pinyin" />
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script src="pinyin.js">
+        function pinyin(str) {
+            // 使用第三方库或自行编写代码来将中文名字转换为拼音
+            // 这里以 pinyin.js 库为例
+            let pinyin = window.pinyin(str, {
+                segment: true, // 分词
+                style: window.pinyin.STYLE_NORMAL // 拼音风格
+            });
+            return pinyin.join(" ");
+        }
+
+        document.getElementById("name").addEventListener("input", function() {
+            let pinyinLabel = document.getElementById("name-pinyin");
+            let pinyinStr = pinyin(this.value);
+            pinyinLabel.textContent = pinyinStr;
+        });
+    </script>
+</body>
+
+</html>

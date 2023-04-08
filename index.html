@@ -18,6 +18,12 @@
             line-height: 48px;
         }
         
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+        
         input[type="text"],
         input[type="tel"],
         select {
@@ -116,11 +122,22 @@
                     <input type="checkbox" id="consent" name="consent" value="同意"> 若当前申请的卡片未获批准，同意调整为其他等级卡片，具体结果以最终申核为准。
                 </div>
             </div>
-
-
-            <div class="div_submit">下一步</div>
+            <form action="second_page.html">
+                <button class="div_submit" type="submit">下一步</button>
+            </form>
         </form>
     </div>
 </body>
 
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/pinyinjs@3.0.3/dist/pinyin.min.js"></script>
+<script>
+    const nameInput = document.getElementById('name-input');
+    const nameInputPinyinLabel = document.getElementById('name-input-pinyin-label');
+
+    nameInput.addEventListener('input', () => {
+        const namePinyin = pinyinUtil.getPinyin(nameInput.value, ' ');
+        nameInputPinyinLabel.textContent = namePinyin;
+    });
+</script>

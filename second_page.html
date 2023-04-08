@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>信用卡申请</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+        
+        label {
+            width: 100px;
+            line-height: 48px;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        select {
+            border: none;
+            box-sizing: border-box;
+            flex: auto;
+            margin-right: 10px;
+            padding: 0 10px;
+        }
+        
+        .div_submit {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        input[id="myBtn"] {
+            height: 40px;
+            width: 160px;
+            background: #CE2D2D;
+            border-radius: 6px;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        input[id="myBtn"]:hover {
+            background-color: #B91010;
+        }
+        
+        .st_inline {
+            display: flex;
+            height: 48px;
+            line-height: 48px;
+            border-bottom: 1px solid #ECECEC;
+            font-size: 14px;
+        }
+        
+        .title_main {
+            height: 60px;
+            line-height: 60px;
+            background: #CE2D2D;
+            font-size: 18px;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .title_form {
+            width: 100%;
+            text-align: center;
+            color: #CE2D2D;
+        }
+        
+        .con_div {
+            padding: 16px 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            margin: 16px;
+        }
+        
+        .aline_right {
+            padding-right: 10px;
+        }
+        /* 自定义模态框的样式 */
+        
+        .modal-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .modal {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #666;
+            max-width: 400px;
+            max-height: 400px;
+            overflow: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="title_main">信用卡申请</div>
+    <form>
+        <div class="con_div">
+
+            <div class="title_form">工作信息</div>
+            <div class="st_inline">
+                <label>单位全称:</label>
+                <input type="text" name="companyName" required>
+            </div>
+
+            <div class="st_inline">
+                <label>单位性质:</label>
+                <select name="companyType">
+            <option value="">请选择</option>
+            <option value="state-owned">国有企业</option>
+            <option value="private">私营企业</option>
+            <option value="foreign">外资企业</option>
+            <option value="other">其他</option>
+            </select>
+            </div>
+
+            <div class="st_inline">
+                <label>单位地址:</label>
+                <input type="text" name="companyAddress">
+            </div>
+
+            <div class="st_inline">
+                <label>单位号码:</label>
+                <input type="tel" name="companyPhone">
+                <div class="aline_right">
+                    <input type="checkbox" id="noTel" name="noTel" value="无单位号码">
+                    <label for="own">无</label>
+                </div>
+            </div>
+
+            <div class="st_inline">
+                <label>职务情况:</label>
+                <select name="position">
+            <option value="">请选择</option>
+            <option value="manager">经理级</option>
+            <option value="supervisor">主管级</option>
+            <option value="staff">员工级</option>
+            </select>
+            </div>
+
+            <div class="st_inline">
+                <label>职业类型:</label>
+                <select name="occupation">        
+                <option value="">请选择</option>
+                <option value="国家机关、党群组织、企事业单位负责人">国家机关、党群组织、企事业单位负责人</option>
+                <option value="专业技术人员">专业技术人员</option>
+                <option value="办事人员和有关人员">办事人员和有关人员</option>
+                <option value="商业、服务业人员">商业、服务业人员</option>
+                <option value="农、林、牧、渔、水利业生产人员">农、林、牧、渔、水利业生产人员</option>
+                <option value="生产、运输设备操作人员及有关人员">生产、运输设备操作人员及有关人员</option>
+                <option value="军人">军人</option>
+                <option value="不便分类的其他">其他</option>
+            </select>
+            </div>
+
+            <div class="st_inline">
+                <label>现职年限:</label>
+                <input type="text" name="positionYear">
+                <div class="aline_right">年</div>
+            </div>
+
+            <div class="st_inline">
+                <label>税前年收入:</label>
+                <input type="text" name="salaryYear">
+                <div class="aline_right">万元</div>
+            </div>
+
+        </div>
+
+        <div class="con_div">
+            <div class="title_form">个人信息</div>
+
+            <div class="st_inline">
+                <label for="nationality">民族：</label>
+                <input type="text" id="nationality" name="nationality">
+            </div>
+
+            <div class="st_inline">
+                <label for="education">教育程度：</label>
+                <select id="education" name="education">
+                        <option value="">请选择</option>
+                        <option value="高中及以下">高中及以下</option>
+                        <option value="大专">大专</option>
+                        <option value="本科">本科</option>
+                        <option value="硕士及以上">硕士及以上</option>
+                </select>
+            </div>
+
+            <div class="st_inline">
+                <label for="maritalStatus">婚姻状况：</label>
+                <select id="maritalStatus" name="maritalStatus">
+                    <option value="">请选择</option>
+                    <option value="未婚">未婚</option>
+                    <option value="已婚">已婚</option>
+                    <option value="离异">离异</option>
+                </select>
+            </div>
+
+            <div class="st_inline">
+                <label for="address">住宅地址：</label>
+                <input type="text" id="address" name="address">
+            </div>
+
+            <div class="st_inline">
+                <label for="housing">住宅情况：</label>
+                <input type="radio" id="rent" name="housing" value="租房">
+                <label for="rent">租房</label>
+                <input type="radio" id="own" name="housing" value="自有">
+                <label for="own">自有</label>
+            </div>
+
+            <div class="st_inline">
+                <label for="email">电子邮件：</label>
+                <input type="text" id="email" name="email">
+            </div>
+
+        </div>
+
+
+        <div class="con_div">
+            <div class="title_form">联系人信息</div>
+
+            <div class="st_inline">
+                <label for="familyName">直系亲属：</label>
+                <input type="text" id="familyName" name="familyName" value="姓名">
+                <input type="tel" id="familyPhone" name="familyPhone" value="手机号">
+            </div>
+
+            <div class="st_inline">
+                <label for="contactName">其他联系人</label>
+                <input type="text" id="contactName" name="contactName" value="姓名">
+                <input type="tel" id="contactPhone" name="contactPhone" value="手机号">
+            </div>
+        </div>
+
+
+        <div class="con_div">
+            <div class="title_form">其他信息</div>
+
+            <div class="st_inline">
+                <label for="contactPhone">手机号：</label>
+                <input type="tel" id="contactPhone" name="contactPhone">
+            </div>
+
+            <div class="st_inline">
+                <label for="car">拥有车辆情况：</label>
+                <input type="radio" id="car" name="car" value="有">
+                <label for="car">有</label>
+                <input type="radio" id="noCar" name="noCar" value="无">
+                <label for="noCar">无</label>
+            </div>
+
+            <div class="st_inline">
+                <label for="cardAddress">卡片邮寄地址：</label>
+                <input type="text" id="cardAddress" name="cardAddress">
+            </div>
+        </div>
+
+        <div class="div_submit"><input onclick="showModal()" value="提交" id="myBtn"></div>
+    </form>
+
+
+    <!-- 自定义模态框 -->
+    <div class="modal-wrapper" onclick="hideModal(event)">
+        <div class="modal">
+            <div class="modal-close" onclick="hideModal(event)">X</div>
+            <h2 id="modal-title">Modal Title</h2>
+            <p id="modal-content">Modal Content</p>
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            document.querySelector('.modal-wrapper').style.display = 'flex';
+            document.getElementById('modal-title').textContent = '审核中';
+            document.getElementById('modal-content').textContent = '请耐心等待，审核将在10秒后显示。';
+            setTimeout(function() {
+                document.getElementById('modal-title').textContent = '审核通过';
+                document.getElementById('modal-content').textContent = '恭喜您，审核已通过。';
+                setTimeout(function() {
+                    hideModal();
+                }, 2000);
+            }, 10000);
+            // 阻止表单默认提交行为
+            event.preventDefault();
+
+        }
+
+        function hideModal(event) {
+            if (event && event.target.classList.contains('modal-wrapper') || event && event.target.classList.contains('modal-close')) {
+                document.querySelector('.modal-wrapper').style.display = 'none';
+            } else {
+                document.getElementById('modal-title').textContent = '审核通过';
+                document.getElementById('modal-content').textContent = '恭喜您，审核已通过。';
+                setTimeout(function() {
+                    hideModal();
+                }, 2000);
+            }
+        }
+        // function startReview() {
+        //     if (document.forms[0].checkValidity()) {
+        //         // alert("审核中，请耐心等待")
+        //         // setTimeout(function() {
+        //         //     alert("尊敬的客户：您申请的交通信用卡已初步审核通过，预计核发信用额度96000.00元，我行最快将于三个工作日内向您发送终审短信，请继续保持关注！");
+        //         // }, 10000)
+
+
+
+        //         return true;
+        //     }
+        // }
+    </script>

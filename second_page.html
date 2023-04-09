@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>信用卡申请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,12 +35,9 @@
         }
         
         .div_submit {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        input[id="myBtn"] {
+            display: block;
+            margin: 0 auto 20px auto;
+            text-align: center;
             height: 40px;
             width: 160px;
             background: #CE2D2D;
@@ -50,7 +48,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         
-        input[id="myBtn"]:hover {
+        .div_submit:hover {
             background-color: #B91010;
         }
         
@@ -288,7 +286,7 @@
             </div>
         </div>
 
-        <div class="div_submit"><input onclick="showModal()" value="提交" id="myBtn"></div>
+        <button class="div_submit" onclick="showModal()" value="提交" id="myBtn">提交</button>
     </form>
 
 

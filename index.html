@@ -96,7 +96,7 @@
     <div class="title_main">信用卡申请</div>
     <div class="con">
         <form action="second_page.html" method="GET">
-            <img src="credit_card.jpg" alt="信用卡" style="width: 80%;  margin: 0 auto 40px auto; display: block;">
+            <img src="credit_card.jpeg" alt="信用卡" style="width: 80%;  margin: 0 auto 40px auto; display: block;">
             <div class="st_inline">
                 <label for="fullname">中文姓名：</label>
                 <input type="text" id="fullname" name="fullname" placeholder="请输入" required>
@@ -104,7 +104,8 @@
 
             <div class="st_inline">
                 <label for="pinyin">姓名拼音：</label>
-                <input type="text" id="pinyin" name="pinyin" placeholder="请输入" required>
+                <!-- <input type="text" id="pinyin" name="pinyin" placeholder="请输入" required> -->
+                <div id="result"></div>
             </div>
 
             <div class="st_inline">
@@ -117,8 +118,8 @@
                 <input type="text" id="phone" name="phone" placeholder="请输入" required>
             </div>
             <div class="clause">
-                本人已阅读以下信用卡章程、 领用合约、授权书等全部申请 材料，充分了解并清楚知晓华夏银行信用卡产品的相关信 息、权利义务、收费标准，愿意遵守以下各项约定的全部内 容：
-                <span class="clause_blue">《华夏银行信用卡章程》《华夏银行信用卡（个人卡）领用合约》 《重要提示》《个人信息处理授权书》《华夏银行产品和服务销售价目名录》</span> （收费标准）。同意并授权 华夏银行为信用卡业务之目的，向中国人民银行金融信用信息基础数据库等有关方面查询、报送本人的个人信用信息，包括个人基本信息、个人信货交易信息以及反映个人信用状况的其他信息。同意并授权华夏银行记录本人使用的Cookie和IP地址等设备信息、填写行为（查看Cookie应用说明）本人同意使用电子签名的方式签订本协议，同意并授权华夏银行向北京数字认证股份有限公司申请电子签名认证证书，自愿遵守其电子认证业务规则。
+                本人已阅读以下信用卡章程、 领用合约、授权书等全部申请 材料，充分了解并清楚知晓交通银行信用卡产品的相关信 息、权利义务、收费标准，愿意遵守以下各项约定的全部内 容：
+                <span class="clause_blue">《交通银行信用卡章程》《交通银行信用卡（个人卡）领用合约》 《重要提示》《个人信息处理授权书》《交通银行产品和服务销售价目名录》</span> （收费标准）。同意并授权 交通银行为信用卡业务之目的，向中国人民银行金融信用信息基础数据库等有关方面查询、报送本人的个人信用信息，包括个人基本信息、个人信货交易信息以及反映个人信用状况的其他信息。同意并授权交通银行记录本人使用的Cookie和IP地址等设备信息、填写行为（查看Cookie应用说明）本人同意使用电子签名的方式签订本协议，同意并授权交通银行向北京数字认证股份有限公司申请电子签名认证证书，自愿遵守其电子认证业务规则。
                 <div class="clause_red">
                     <input type="checkbox" id="consent" name="consent" value="同意"> 若当前申请的卡片未获批准，同意调整为其他等级卡片，具体结果以最终申核为准。
                 </div>
@@ -132,13 +133,23 @@
 
 </html>
 
-<script src="https://cdn.jsdelivr.net/npm/pinyinjs@3.0.3/dist/pinyin.min.js"></script>
+<script type="text/javascript" src="dict/pinyin_dict_withtone.js"></script>
+<script type="text/javascript" src="pinyinUtil.js"></script>
 <script>
-    const nameInput = document.getElementById('name-input');
-    const nameInputPinyinLabel = document.getElementById('name-input-pinyin-label');
-
-    nameInput.addEventListener('input', () => {
-        const namePinyin = pinyinUtil.getPinyin(nameInput.value, ' ');
-        nameInputPinyinLabel.textContent = namePinyin;
-    });
+    function getPinyin() {
+        var value = document.getElementById('fullname').value;
+        var result = result = pinyinUtil.getFirstLetter(value, false);
+        result = pinyinUtil.getPinyin(value, ' ', true, false);
+        var html = result;
+        if (result instanceof Array) {
+            html = '<ol>';
+            result.forEach(function(val) {
+                html += '<li>' + val + '</li>';
+            });
+            html += '</ol>';
+        }
+        document.getElementById('result').innerHTML = html;
+    }
+    document.getElementById('fullname').addEventListener('input', getPinyin);
+    getPinyin();
 </script>

@@ -138,8 +138,8 @@
 <script>
     function getPinyin() {
         var value = document.getElementById('fullname').value;
-        var result = result = pinyinUtil.getFirstLetter(value, false);
-        result = pinyinUtil.getPinyin(value, ' ', true, false);
+        // var result = result = pinyinUtil.getFirstLetter(value, false);
+        var result = pinyinUtil.getPinyin(value, ' ', false, false);
         var html = result;
         if (result instanceof Array) {
             html = '<ol>';

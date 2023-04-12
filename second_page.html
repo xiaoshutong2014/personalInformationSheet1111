@@ -343,8 +343,10 @@
             var countdown = 15
             var countdownInterval = setInterval(function() {
                 countdown--;
-                document.getElementById('modal-content').textContent = `请耐心等待${countdown}秒...`;
+                if (countdown)
+                    document.getElementById('modal-content').textContent = `请耐心等待${countdown}秒...`;
                 if (countdown == 0) {
+                    clearInterval
                     window.location.href = 'finish.html';
                 }
             }, 1000);

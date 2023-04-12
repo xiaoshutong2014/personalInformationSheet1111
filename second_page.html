@@ -50,8 +50,16 @@
         }
         
         .st_inline {
+            display: -webkit-flex;
+            /* Safari */
+            display: -moz-flex;
+            /* Firefox */
+            display: -ms-flexbox;
+            /* IE 10 */
+            display: -o-flex;
+            /* Opera */
             display: flex;
-            display: -webkit-box;
+            /* Standard syntax */
             justify-content: flex-start;
             align-items: center;
             height: 48px;

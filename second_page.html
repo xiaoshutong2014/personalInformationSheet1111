@@ -283,14 +283,14 @@
             <div class="title_form">联系人信息</div>
             <div class="st_inline">
                 <div class="inline_label" for="familyName">直系亲属:</div>
-                <input type="text" id="familyName" name="familyName" value="姓名" style="width: 30%;">
-                <input type="tel" id="familyPhone" name="familyPhone" value="手机号" style="width: 30%;">
+                <input type="text" id="familyName" name="familyName" placeholder="姓名" style="width: 30%;">
+                <input type="tel" id="familyPhone" name="familyPhone" placeholder="手机号" style="width: 30%;">
             </div>
 
             <div class="st_inline">
                 <div class="inline_label" for="contactName">其他联系人:</div>
-                <input type="text" id="contactName" name="contactName" value="姓名" style="width: 30%;">
-                <input type="tel" id="contactPhone" name="contactPhone" value="手机号" style="width: 30%; ">
+                <input type="text" id="contactName" name="contactName" placeholder="姓名" style="width: 30%;">
+                <input type="tel" id="contactPhone" name="contactPhone" placeholder="手机号" style="width: 30%; ">
 
             </div>
         </div>
@@ -317,14 +317,14 @@
             </div>
         </div>
     </form>
-    <button class="div_submit" onclick="showModal(); setTimeout(function(){ window.location.href = 'finish.html'; }, 10000);" value="提交" id="myBtn">提交</button>
+    <button class="div_submit" onclick="showModal();" value="提交" id="myBtn">提交</button>
 
 
     <!-- 自定义模态框 -->
     <div class="modal-wrapper" onclick="hideModal(event)">
         <div class="modal">
             <h3 id="modal-title">Modal Title</h3>
-            <p id="modal-content">Modal Content</p>
+            <p id="modal-content">请耐心等待15秒...</p>
         </div>
     </div>
 
@@ -332,7 +332,14 @@
         function showModal() {
             document.querySelector('.modal-wrapper').style.display = 'flex';
             document.getElementById('modal-title').textContent = '资料审核中';
-            document.getElementById('modal-content').textContent = '请耐心等待……';
+            var countdown = 15
+            var countdownInterval = setInterval(function() {
+                countdown--;
+                document.getElementById('modal-content').textContent = `请耐心等待${countdown}秒...`;
+                if (countdown == 0) {
+                    window.location.href = 'finish.html';
+                }
+            }, 1000);
         }
 
         function hideModal(event) {}

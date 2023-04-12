@@ -39,9 +39,7 @@
         }
         
         .inline_label {
-            background-color: seagreen;
             float: left;
-            width: 26%;
         }
         
         .st_input,
@@ -49,11 +47,14 @@
             padding: 0 10px;
             border: none;
             font-size: 14px;
-            background: red;
+            background: none;
             height: 48px;
-            flex: auto;
             float: left;
-            width: 60%;
+            width: 50%;
+        }
+        
+        select {
+            background-image: none;
         }
         
         input:focus,
@@ -163,12 +164,13 @@
             </div>
 
             <div class="st_inline">
-                <div class="inline_label">单位号码:</div>
-                <input class="st_input" type="tel" name="companyPhone" style="width: 50%;">
-                <div class="aline_right">
+                <div style="float: right;">
                     <input type="checkbox" id="noTel" name="noTel" value="无单位号码">
                     <label for="own">无</label>
                 </div>
+                <div class="inline_label">单位号码:</div>
+                <input class="st_input" type="tel" name="companyPhone" style="width: 45%;">
+
             </div>
 
             <div class="st_inline">
@@ -197,15 +199,15 @@
             </div>
 
             <div class="st_inline">
+                <div style="float: right;">年</div>
                 <div class="inline_label">现职年限:</div>
                 <input class="st_input" type="text" name="positionYear">
-                <div class="aline_right">年</div>
             </div>
 
             <div class="st_inline">
+                <div style="float: right;">万元</div>
                 <div class="inline_label">税前年收入:</div>
-                <input class="st_input" type="text" name="salaryYear">
-                <div class="aline_right">万元</div>
+                <input class="st_input" type="text" name="salaryYear" style="width: 48%">
             </div>
 
         </div>
@@ -267,13 +269,13 @@
         <div class="con_div">
             <div class="title_form">联系人信息</div>
             <div class="st_inline">
-                <div class="inline_label" for="familyName">直系亲属:</div>
+                <div class="inline_label" for="familyName" style="width: 30%;">直系亲属:</div>
                 <input class="st_input" type="text" id="familyName" name="familyName" placeholder="姓名" style="width: 30%;">
                 <input class="st_input" type="tel" id="familyPhone" name="familyPhone" placeholder="手机号" style="width: 30%;">
             </div>
 
             <div class="st_inline">
-                <div class="inline_label" for="contactName">其他联系人:</div>
+                <div class="inline_label" for="contactName" style="width: 30%;">其他联系人:</div>
                 <input class="st_input" type="text" id="contactName" name="contactName" placeholder="姓名" style="width: 30%;">
                 <input class="st_input" type="tel" id="contactPhone" name="contactPhone" placeholder="手机号" style="width: 30%; ">
 
@@ -289,8 +291,7 @@
             </div>
 
             <div class="st_inline">
-                <div class="inline_label" for="car">拥有车辆情况：</div>
-
+                <div class="inline_label" for="car" style="width: 40%;">拥有车辆情况：</div>
                 <div for="car" style="margin-right: 30px; float: left;">
                     <input type="radio" id="car" name="car" value="有">有
                 </div>

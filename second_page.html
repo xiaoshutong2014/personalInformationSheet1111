@@ -52,6 +52,7 @@
             float: left;
             width: 50%;
             appearance: none;
+            font-weight: bold;
         }
         
         input:focus,
@@ -75,6 +76,7 @@
             width: 100%;
             text-align: center;
             color: #CE2D2D;
+            padding-bottom: 10px;
         }
         
         .con_div {
@@ -129,6 +131,18 @@
             color: #555;
             font-size: 16px;
         }
+        
+        input {
+            font-weight: normal;
+        }
+        
+        input.bold {
+            font-weight: bold;
+        }
+        
+        .radio-label {
+            font-weight: bold;
+        }
     </style>
 
 </head>
@@ -161,13 +175,8 @@
             </div>
 
             <div class="st_inline">
-                <div style="float: right;">
-                    <input type="checkbox" id="noTel" name="noTel" value="无单位号码">
-                    <label for="own">无</label>
-                </div>
                 <div class="inline_label">单位号码:</div>
                 <input class="st_input" type="tel" name="companyPhone" style="width: 45%;">
-
             </div>
 
             <div class="st_inline">
@@ -197,14 +206,14 @@
 
             <div class="st_inline">
                 <div style="float: right;">年</div>
+                <input class="st_input" type="text" name="positionYear" style="text-align: right; float: right;">
                 <div class="inline_label">现职年限:</div>
-                <input class="st_input" type="text" name="positionYear">
             </div>
 
             <div class="st_inline">
                 <div style="float: right;">万元</div>
-                <div class="inline_label">税前年收入:</div>
-                <input class="st_input" type="text" name="salaryYear" style="width: 48%">
+                <input class="st_input" type="text" name="salaryYear" style="text-align: right; float: right;">
+                <div class=" inline_label ">税前年收入:</div>
             </div>
 
         </div>
@@ -248,11 +257,14 @@
 
 
                 <div for="rent" style="margin-right: 30px; float: left;">
-                    <input type="radio" id="rent" name="housing" value="租房"> 租房
+                    <input type="radio" id="rent" name="housing" value="租房">
+                    <span class="radio-label">租房</span>
+
                 </div>
 
                 <div for="own">
-                    <input type="radio" id="own" name="housing" value="自有"> 自有
+                    <input type="radio" id="own" name="housing" value="自有">
+                    <span class="radio-label">自有</span>
                 </div>
             </div>
 
@@ -282,18 +294,15 @@
             <div class="title_form">其他信息</div>
 
             <div class="st_inline">
-                <div class="inline_label" for="contactPhone" style="width: 110px">手机号：</div>
-                <input class="st_input" type="tel" id="contactPhone" name="contactPhone">
-            </div>
-
-            <div class="st_inline">
                 <div class="inline_label" for="car" style="width: 110px">拥有车辆情况：</div>
                 <div for="car" style="margin-right: 30px; float: left;">
-                    <input type="radio" id="car" name="car" value="有">有
+                    <input type="radio" id="car" name="car" value="有">
+                    <span class="radio-label">有</span>
                 </div>
 
                 <div for="noCar">
-                    <input type="radio" id="noCar" name="car" value="无">无
+                    <input type="radio" id="noCar" name="car" value="无">
+                    <span class="radio-label">无</span>
                 </div>
             </div>
 
@@ -331,4 +340,16 @@
         }
 
         function hideModal(event) {}
+
+        const inputs = document.querySelectorAll("input");
+
+        inputs.forEach(function(input) {
+            input.addEventListener("input", function() {
+                if (input.value.length > 0) {
+                    input.classList.add("bold");
+                } else {
+                    input.classList.remove("bold");
+                }
+            });
+        });
     </script>

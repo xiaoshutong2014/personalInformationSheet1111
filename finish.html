@@ -11,15 +11,14 @@
             background-color: #f1f1f1;
             margin: 0;
             padding: 0;
+            font-size: 14px;
         }
         
         .conFinish {
-            border-radius: 5px;
-            background: #fff;
             margin: 16px;
             height: 400px;
             text-align: center;
-            padding: 60px 50px 0 50px;
+            padding: 30px 20px 0 20px;
         }
         
         .title_main {
@@ -30,15 +29,44 @@
             color: #fff;
             text-align: center;
         }
+        
+        .donePic {
+            margin: 0 auto 10px auto;
+            display: block;
+            height: 60px;
+        }
+        
+        .title_succeed {
+            font-size: 16px;
+        }
+        
+        .title_money {
+            font-size: 24px;
+            font-weight: 600;
+            padding-top: 10px;
+        }
+        
+        .title_money span {
+            font-size: 12px;
+            font-weight: normal;
+        }
+        
+        .title_gray {
+            font-size: 12px;
+            color: #999;
+            padding: 5px 0 30px 0;
+        }
     </style>
 </head>
 
 <body>
-    <div class="title_main">信用卡申请</div>
+    <div class="title_main">提交资料成功</div>
     <div class="conFinish">
-        <img src="done.png" style=" margin:0 auto 20px auto; display: block;">
-        <h3>审核通过</h3>
-        <p>尊敬的客户：您申请的交通信用卡已初步审核通过，预计核发信用额度96000.00元，我行最快将于三个工作日内向您发送终审短信，请继续保持关注！</p>
+        <img src="done.png" class="donePic">
+        <div class="title_succeed">审批成功</div>
+        <div class="title_money"><span>￥</span>96,000.00</div>
+        <div class="title_gray">信用额度</div>
+        <p>尊敬的客户：您申请的交通信用卡已初步审核通过，我行最快将于三个工作日内向您发送终审短信，请继续保持关注！</p>
     </div>
 
 </body>

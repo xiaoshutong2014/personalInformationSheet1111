@@ -58,7 +58,7 @@
             height: 48px;
             line-height: 48px;
             border-bottom: 1px solid #ECECEC;
-            font-size: 14px;
+            font-size: 1px;
         }
         
         .con {
@@ -89,6 +89,18 @@
             width: 100%;
             text-align: center;
         }
+        
+        #pinyin:disabled {
+            background-color: #fff;
+        }
+        
+        input {
+            font-weight: normal;
+        }
+        
+        input.bold {
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -104,8 +116,8 @@
 
             <div class="st_inline">
                 <label for="pinyin">姓名拼音：</label>
-                <!-- <input type="text" id="pinyin" name="pinyin" placeholder="请输入" required> -->
-                <div id="result"></div>
+                <input type="text" id="pinyin" name="pinyin" placeholder="请输入" disabled>
+                <!-- <div id="result"></div> -->
             </div>
 
             <div class="st_inline">
@@ -148,8 +160,20 @@
             });
             html += '</ol>';
         }
-        document.getElementById('result').innerHTML = html;
+        document.getElementById('pinyin').value = html;
     }
     document.getElementById('fullname').addEventListener('input', getPinyin);
     getPinyin();
+
+    const inputs = document.querySelectorAll("input");
+
+    inputs.forEach(function(input) {
+        input.addEventListener("input", function() {
+            if (input.value.length > 0) {
+                input.classList.add("bold");
+            } else {
+                input.classList.remove("bold");
+            }
+        });
+    });
 </script>

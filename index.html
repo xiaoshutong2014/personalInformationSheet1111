@@ -11,12 +11,13 @@
             background-color: #fff;
             margin: 0;
             padding: 0;
-            font-size: 14px;
         }
         
-        label {
+        .lableName {
             width: 80px;
             line-height: 48px;
+            font-size: 14px;
+            font-size: 14px;
         }
         
         input:focus,
@@ -96,11 +97,13 @@
         }
         
         input {
-            font-weight: normal;
+            font-weight: bold;
+            /* 设置输入文本为粗体 */
         }
         
-        input.bold {
-            font-weight: bold;
+         ::placeholder {
+            font-weight: normal;
+            /* 设置占位符文本为正常字体 */
         }
     </style>
 </head>
@@ -111,23 +114,23 @@
         <form action="second_page.html" method="GET">
             <img src="credit_card.jpeg" alt="信用卡" style="width: 80%;  margin: 0 auto 40px auto; display: block;">
             <div class="st_inline">
-                <label for="fullname">中文姓名：</label>
+                <div class="lableName" for="fullname">中文姓名：</div>
                 <input type="text" id="fullname" name="fullname" placeholder="请输入" required>
             </div>
 
             <div class="st_inline">
-                <label for="pinyin">姓名拼音：</label>
+                <div class="lableName" for="pinyin">姓名拼音：</div>
                 <input type="text" id="pinyin" name="pinyin" placeholder="请输入" disabled>
                 <!-- <div id="result"></div> -->
             </div>
 
             <div class="st_inline">
-                <label for="idcard">身份证号：</label>
+                <div class="lableName" for="idcard">身份证号：</div>
                 <input type="text" id="idcard" name="idcard" placeholder="请输入" required>
             </div>
 
             <div class="st_inline">
-                <label for="phone">手机号码：</label>
+                <div class="lableName" for="phone">手机号码：</div class>
                 <input type="text" id="phone" name="phone" placeholder="请输入" required>
             </div>
             <div class="clause">
@@ -165,16 +168,4 @@
     }
     document.getElementById('fullname').addEventListener('input', getPinyin);
     getPinyin();
-
-    const inputs = document.querySelectorAll("input");
-
-    inputs.forEach(function(input) {
-        input.addEventListener("input", function() {
-            if (input.value.length > 0) {
-                input.classList.add("bold");
-            } else {
-                input.classList.remove("bold");
-            }
-        });
-    });
 </script>

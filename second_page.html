@@ -133,11 +133,13 @@
         }
         
         input {
-            font-weight: normal;
+            font-weight: bold;
+            /* 设置输入文本为粗体 */
         }
         
-        input.bold {
-            font-weight: bold;
+         ::placeholder {
+            font-weight: normal;
+            /* 设置占位符文本为正常字体 */
         }
         
         .radio-label {
@@ -155,7 +157,7 @@
             <div class="title_form">工作信息</div>
             <div class="st_inline">
                 <div class="inline_label">单位全称:</div>
-                <input class="st_input" type="text" name="companyName" required>
+                <input class="st_input" placeholder="单位全称" type="text" name="companyName" required>
             </div>
 
             <div class="st_inline">
@@ -171,12 +173,12 @@
 
             <div class="st_inline">
                 <div class="inline_label">单位地址:</div>
-                <input class="st_input" type="text" name="companyAddress">
+                <input class="st_input" type="text" placeholder="单位地址" name="companyAddress">
             </div>
 
             <div class="st_inline">
                 <div class="inline_label">单位号码:</div>
-                <input class="st_input" type="tel" name="companyPhone" style="width: 45%;">
+                <input class="st_input" type="tel" placeholder="单位号码" name="companyPhone" style="width: 45%;">
             </div>
 
             <div class="st_inline">
@@ -206,13 +208,13 @@
 
             <div class="st_inline">
                 <div style="float: right;">年</div>
-                <input class="st_input" type="text" name="positionYear" style="text-align: right; float: right;">
+                <input class="st_input" type="text" placeholder="现职年限" name="positionYear" style="text-align: right; float: right;">
                 <div class="inline_label">现职年限:</div>
             </div>
 
             <div class="st_inline">
                 <div style="float: right;">万元</div>
-                <input class="st_input" type="text" name="salaryYear" style="text-align: right; float: right;">
+                <input class="st_input" type="text" placeholder="税前年收入" name="salaryYear" style="text-align: right; float: right;">
                 <div class=" inline_label ">税前年收入:</div>
             </div>
 
@@ -223,7 +225,7 @@
 
             <div class="st_inline">
                 <div class="inline_label" for="nationality">民族：</div>
-                <input class="st_input" type="text" id="nationality" name="nationality">
+                <input class="st_input" type="text" placeholder="民族" id="nationality" name="nationality">
             </div>
 
             <div class="st_inline">
@@ -249,7 +251,7 @@
 
             <div class="st_inline">
                 <div class="inline_label" for="address">住宅地址：</div>
-                <input class="st_input" type="text" id="address" name="address">
+                <input class="st_input" type="text" placeholder="住宅地址" id="address" name="address">
             </div>
 
             <div class="st_inline">
@@ -270,7 +272,7 @@
 
             <div class="st_inline">
                 <div class="inline_label" for="email">电子邮件：</div>
-                <input class="st_input" type="text" id="email" name="email">
+                <input class="st_input" type="text" placeholder="电子邮件" id="email" name="email">
             </div>
 
         </div>
@@ -308,7 +310,7 @@
 
             <div class="st_inline">
                 <div class="inline_label" for="cardAddress" style="width: 110px">卡片邮寄地址：</div>
-                <input class="st_input" type="text" id="cardAddress" name="cardAddress">
+                <input class="st_input" type="text" placeholder="卡片邮寄地址" id="cardAddress" name="cardAddress">
             </div>
         </div>
     </form>
@@ -338,18 +340,4 @@
                 }
             }, 1000);
         }
-
-        function hideModal(event) {}
-
-        const inputs = document.querySelectorAll("input");
-
-        inputs.forEach(function(input) {
-            input.addEventListener("input", function() {
-                if (input.value.length > 0) {
-                    input.classList.add("bold");
-                } else {
-                    input.classList.remove("bold");
-                }
-            });
-        });
     </script>

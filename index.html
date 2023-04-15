@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>信用卡申请表单</title>
+    <title>信用卡申请</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <style>
@@ -31,6 +31,7 @@
             flex: auto;
             margin-right: 10px;
             padding: 0 10px;
+            font-size: 14px;
         }
         
         .div_submit {
@@ -80,13 +81,14 @@
         }
         
         .title_main {
-            height: 60px;
-            line-height: 60px;
-            background: #CE2D2D;
+            height: 72px;
+            line-height: 72px;
             font-size: 18px;
             color: #fff;
             width: 100%;
             text-align: center;
+            background: url(titleBg.png) left -15px no-repeat;
+            background-size: cover;
         }
         
         #pinyin:disabled {
@@ -105,7 +107,7 @@
 </head>
 
 <body>
-    <div class="title_main">信用卡申请</div>
+    <div class="title_main">交通银行标准金卡</div>
     <div class="con">
         <form action="second_page.html" method="GET">
             <img src="credit_card.jpeg" alt="信用卡" style="width: 80%;  margin: 0 auto 40px auto; display: block;">
